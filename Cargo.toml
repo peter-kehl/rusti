@@ -15,6 +15,9 @@ axum = { version = "0.6.12", default-features = false, features = ["http1", "tok
 # https://github.com/tower-rs/tower/issues/742.
 pin-project = { version = "1.1" }
 
-# If using Tokio "macros" feature, then use version 1.29+. That uses tokio-macros 2.1+, which uses
-# syn 2.
-tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
+# Removing Tokio "macros" feature. Why? We've used it in one place only. Procedural macros increase
+# build times.
+#
+# If we were using Tokio "macros" feature, then use version 1.29+. That uses tokio-macros 2.1+,
+# which uses syn 2.
+tokio = { version = "1.29.1", features = ["rt-multi-thread"] }
